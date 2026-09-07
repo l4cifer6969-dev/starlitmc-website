@@ -78,3 +78,11 @@ document.getElementById("refreshStatus").addEventListener("click", fetchStatus);
 
 fetchStatus();
 setInterval(fetchStatus, 60000);
+
+
+const voteButton = document.getElementById("voteButton");
+if (voteButton) {
+  voteButton.addEventListener("click", () => {
+    alert("Official StarlitMC voting links are coming soon!");
+  });
+}

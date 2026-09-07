@@ -108,3 +108,68 @@ footer { max-width:1200px; margin:auto; padding:35px 6vw 50px; border-top:1px so
   .hero,.section { padding-left:20px; padding-right:20px; }
   .status-grid { grid-template-columns:1fr; }
 }
+
+
+/* StarlitMC community sections */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+.card-number {
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: .14em;
+  opacity: .6;
+  margin-bottom: 12px;
+}
+.notice {
+  margin-top: 22px;
+  padding: 18px 20px;
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 16px;
+  background: rgba(255,255,255,.035);
+  color: var(--muted, #a9aec2);
+}
+.notice strong {
+  color: #fff;
+}
+.staff-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.staff-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: rgba(139,92,246,.18);
+  border: 1px solid rgba(139,92,246,.35);
+  font-weight: 800;
+}
+.muted {
+  opacity: .65;
+}
+.vote-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 28px;
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,.1);
+  background: linear-gradient(135deg, rgba(139,92,246,.12), rgba(255,255,255,.03));
+}
+.vote-box h3 {
+  margin: 0 0 8px;
+}
+.vote-box p {
+  margin: 0;
+  opacity: .72;
+}
+@media (max-width: 850px) {
+  .cards { grid-template-columns: 1fr; }
+  .vote-box { flex-direction: column; align-items: flex-start; }
+}
