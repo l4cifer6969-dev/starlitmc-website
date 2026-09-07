@@ -1,1 +1,88 @@
-const SERVER="play.starletmc.fun";const DISCORD_URL="";const toast=document.getElementById("toast");function show(x){toast.textContent=x;toast.classList.add("show");clearTimeout(window.t);window.t=setTimeout(()=>toast.classList.remove("show"),2200)}document.querySelectorAll(".copy").forEach(b=>b.onclick=async()=>{try{await navigator.clipboard.writeText(b.dataset.ip);show("Copied: "+b.dataset.ip)}catch{show(b.dataset.ip)}});document.querySelectorAll(".buy").forEach(b=>b.onclick=()=>show("Store checkout will be connected soon."));document.querySelector(".vote").onclick=()=>show("Voting links will be added soon.");const d=document.getElementById("discordLink");if(DISCORD_URL)d.href=DISCORD_URL;else d.onclick=e=>{e.preventDefault();show("Add your Discord invite in script.js.")};async function status(){try{const r=await fetch("https://api.mcsrvstat.us/3/"+SERVER),x=await r.json(),on=x.online===true;document.getElementById("status").textContent=on?"Server online":"Server offline";document.getElementById("players").textContent=on&&x.players?x.players.online+"/"+x.players.max:"Offline";document.getElementById("version").textContent=on?(x.version||"Online"):"—"}catch{document.getElementById("status").textContent="Status unavailable"}}status();setInterval(status,60000);
+const SERVER = "play.starlitmc.fun";
+const API = `https://api.mcsrvstat.us/3/${SERVER}`;
+
+// Replace these two URLs when your real links are ready.
+const STORE_URL = "";
+const DISCORD_URL = "https://discord.gg/starlit";
+
+const storeLink = document.getElementById("storeLink");
+const discordLink = document.getElementById("discordLink");
+
+if (STORE_URL) {
+  storeLink.href = STORE_URL;
+  storeLink.target = "_blank";
+  storeLink.rel = "noopener noreferrer";
+} else {
+  storeLink.href = "#";
+  storeLink.setAttribute("aria-disabled", "true");
+  storeLink.addEventListener("click", (event) => {
+    event.preventDefault();
+    alert("The StarlitMC store is coming soon!");
+  });
+}
+
+discordLink.href = DISCORD_URL;
+discordLink.target = "_blank";
+discordLink.rel = "noopener noreferrer";
+
+function setStatus(online, players, max, version) {
+  const status = document.getElementById("serverStatus");
+  const heroStatus = document.getElementById("heroStatus");
+  const heroPlayers = document.getElementById("heroPlayers");
+  const playerCount = document.getElementById("playerCount");
+  const serverVersion = document.getElementById("serverVersion");
+
+  status.textContent = online ? "Online" : "Offline";
+  status.style.color = online ? "#62e89b" : "#ff6b7d";
+  heroStatus.innerHTML = `<span style="background:${online ? "#62e89b" : "#ff6b7d"}"></span> ${online ? "Online now" : "Offline"}`;
+  heroPlayers.textContent = online ? players : "0";
+  playerCount.textContent = online ? `${players} / ${max}` : "0 / 0";
+  serverVersion.textContent = online ? (version || "Online") : "Offline";
+}
+
+async function fetchStatus() {
+  const status = document.getElementById("serverStatus");
+  status.textContent = "Checking...";
+  try {
+    const response = await fetch(API, { cache: "no-store" });
+    const data = await response.json();
+    const online = data.online === true;
+    const players = data.players?.online ?? 0;
+    const max = data.players?.max ?? 0;
+    const version = Array.isArray(data.version) ? data.version.join(", ") : (data.version || "Unknown");
+    setStatus(online, players, max, version);
+    document.getElementById("lastUpdated").textContent =
+      `Last checked: ${new Date().toLocaleTimeString([], {hour: "2-digit", minute: "2-digit"})} · status may be cached for a few minutes.`;
+  } catch (e) {
+    setStatus(false, 0, 0, "Unavailable");
+    document.getElementById("lastUpdated").textContent = "Unable to reach the status service right now.";
+  }
+}
+
+async function copyIp() {
+  try {
+    await navigator.clipboard.writeText(SERVER);
+    document.querySelectorAll("#copyIp, #copyHeroIp").forEach(btn => {
+      const old = btn.textContent;
+      btn.textContent = "Copied ✓";
+      setTimeout(() => btn.textContent = old, 1400);
+    });
+  } catch {
+    alert(`Server IP: ${SERVER}`);
+  }
+}
+
+document.getElementById("copyIp").addEventListener("click", copyIp);
+document.getElementById("copyHeroIp").addEventListener("click", copyIp);
+document.getElementById("refreshStatus").addEventListener("click", fetchStatus);
+
+fetchStatus();
+setInterval(fetchStatus, 60000);
+
+
+const voteButton = document.getElementById("voteButton");
+if (voteButton) {
+  voteButton.addEventListener("click", () => {
+    alert("Official StarlitMC voting links are coming soon!");
+  });
+}
