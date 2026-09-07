@@ -1,32 +1,25 @@
-# StarlitMC Website
+# StarletMC Full Website
 
-A responsive Minecraft server landing page for `play.starlitmc.fun`.
+Professional static Minecraft server website for StarletMC.
 
-## Before deploying
-The Discord button is already configured for `https://discord.gg/starlit`.
+Server: `play.starletmc.fun`
+Current mode: Survival
+Future modes: Lifesteal, Practice, Mini-Games
 
-The store is currently set to **Coming Soon**. When you have a store URL, set `STORE_URL` in `script.js` to that URL.
+Included:
+- Home / server status / player count
+- Modes roadmap
+- VIP, Elite, Legend, MVP ranks
+- Staff-only Admin, Developer and Owner ranks
+- Store UI ready for real checkout integration
+- Rules
+- Voting section
+- Discord section
+- Responsive mobile design
 
-The live status/player count uses the public MCSRVSTAT API and queries `play.starlitmc.fun`.
+Before publishing, add your Discord invite in `script.js`:
+`const DISCORD_URL="https://discord.gg/YOUR-INVITE";`
 
-## Recommended hosting
-Cloudflare Pages is a good fit for this static site. It can serve the apex domain `starlitmc.fun` and supports custom domains.
+When you have a real store, replace the Buy buttons with your provider's product URLs (for example Tebex). Replace the voting placeholders with your actual voting-site links.
 
-## Important DNS
-Keep your existing Minecraft records for `play.starlitmc.fun`.
-
-The website uses the root domain `starlitmc.fun`, so its DNS record must point to your web host. Do not replace the Minecraft `play` records.
-
-
-## New sections
-- Server Rules
-- Staff
-- Voting (Coming Soon)
-- Discord button configured for `https://discord.gg/starlit`
-- Store button configured as Coming Soon
-
-You can replace the starter rules and staff names in `index.html` whenever you have your official information.
-
-
-## Rank system
-The website now showcases: Owner (owners only), Developer (developers only), Admin, Elite, Legend, MVPs, VIP, and Members.
+Works with GitHub Pages, Cloudflare Pages, Netlify, Vercel, or normal web hosting.
