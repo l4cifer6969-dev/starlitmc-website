@@ -14,7 +14,7 @@ Minecraft:
 play.starletmc.fun
 
 Discord:
-https://discord.gg/starlit
+https://discord.gg/starlittt
 
 Store:
 Not connected yet. The site shows a professional store section with no fake payment links.
