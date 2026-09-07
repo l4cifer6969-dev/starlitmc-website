@@ -1,4 +1,4 @@
-# StarlitMC Website
+# Starlit MC Website
 
 A responsive Minecraft server landing page for `play.starlitmc.fun`.
 
