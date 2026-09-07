@@ -2,8 +2,8 @@ const SERVER = "play.starlitmc.fun";
 const API = `https://api.mcsrvstat.us/3/${SERVER}`;
 
 // Replace these two URLs when your real links are ready.
-const STORE_URL = "#";
-const DISCORD_URL = "#";
+const STORE_URL = "https;//www.store.starlitmc.fun";
+const DISCORD_URL = "https://www.discord.gg/starlittt";
 
 document.getElementById("storeLink").href = STORE_URL;
 document.getElementById("discordLink").href = DISCORD_URL;
