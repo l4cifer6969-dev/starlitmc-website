@@ -3,9 +3,9 @@
 A responsive Minecraft server landing page for `play.starlitmc.fun`.
 
 ## Before deploying
-Open `script.js` and replace:
-- `STORE_URL = "#"` with your real store URL
-- `DISCORD_URL = "#"` with your Discord invite
+The Discord button is already configured for `https://discord.gg/starlit`.
+
+The store is currently set to **Coming Soon**. When you have a store URL, set `STORE_URL` in `script.js` to that URL.
 
 The live status/player count uses the public MCSRVSTAT API and queries `play.starlitmc.fun`.
 

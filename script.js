@@ -2,11 +2,28 @@ const SERVER = "play.starlitmc.fun";
 const API = `https://api.mcsrvstat.us/3/${SERVER}`;
 
 // Replace these two URLs when your real links are ready.
-const STORE_URL = "store";
-const DISCORD_URL = "https://www.discord.gg/starlittt";
+const STORE_URL = "";
+const DISCORD_URL = "https://discord.gg/starlit";
 
-document.getElementById("storeLink").href = STORE_URL;
-document.getElementById("discordLink").href = DISCORD_URL;
+const storeLink = document.getElementById("storeLink");
+const discordLink = document.getElementById("discordLink");
+
+if (STORE_URL) {
+  storeLink.href = STORE_URL;
+  storeLink.target = "_blank";
+  storeLink.rel = "noopener noreferrer";
+} else {
+  storeLink.href = "#";
+  storeLink.setAttribute("aria-disabled", "true");
+  storeLink.addEventListener("click", (event) => {
+    event.preventDefault();
+    alert("The StarlitMC store is coming soon!");
+  });
+}
+
+discordLink.href = DISCORD_URL;
+discordLink.target = "_blank";
+discordLink.rel = "noopener noreferrer";
 
 function setStatus(online, players, max, version) {
   const status = document.getElementById("serverStatus");
