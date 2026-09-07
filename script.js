@@ -17,7 +17,7 @@ if (STORE_URL) {
   storeLink.setAttribute("aria-disabled", "true");
   storeLink.addEventListener("click", (event) => {
     event.preventDefault();
-    alert("The Starlit MC store is coming soon!");
+    alert("The StarlitMC store is coming soon!");
   });
 }
 
@@ -78,11 +78,3 @@ document.getElementById("refreshStatus").addEventListener("click", fetchStatus);
 
 fetchStatus();
 setInterval(fetchStatus, 60000);
-
-
-const voteButton = document.getElementById("voteButton");
-if (voteButton) {
-  voteButton.addEventListener("click", () => {
-    alert("Official Starlit MC voting links are coming soon!");
-  });
-}

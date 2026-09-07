@@ -1,4 +1,4 @@
-# Starlit MC Website
+# StarlitMC Website
 
 A responsive Minecraft server landing page for `play.starlitmc.fun`.
 
@@ -16,13 +16,3 @@ Cloudflare Pages is a good fit for this static site. It can serve the apex domai
 Keep your existing Minecraft records for `play.starlitmc.fun`.
 
 The website uses the root domain `starlitmc.fun`, so its DNS record must point to your web host. Do not replace the Minecraft `play` records.
-
-
-## New sections
-- Server Rules
-- Staff
-- Voting (Coming Soon)
-- Discord button configured for `https://discord.gg/starlit`
-- Store button configured as Coming Soon
-
-You can replace the starter rules and staff names in `index.html` whenever you have your official information.
